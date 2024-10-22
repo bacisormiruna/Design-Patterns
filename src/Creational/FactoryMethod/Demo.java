@@ -24,7 +24,6 @@ public class Demo {
         static void runBusinessLogic() {
             dialog.renderWindow();
         }
-
 }
 
 

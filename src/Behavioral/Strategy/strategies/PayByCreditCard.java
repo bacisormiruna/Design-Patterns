@@ -7,10 +7,6 @@ import java.io.InputStreamReader;
 public class PayByCreditCard implements PayStrategy{
     private final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     private CreditCard card;
-
-    /**
-     * Collect credit card data.
-     */
     @Override
     public void collectPaymentDetails() {
         try {
@@ -22,16 +18,11 @@ public class PayByCreditCard implements PayStrategy{
             String cvv = READER.readLine();
             card = new CreditCard(number, date, cvv);
 
-            // Validate credit card number...
-
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
-    /**
-     * After card validation we can charge customer's credit card.
-     */
     @Override
     public boolean pay(int paymentAmount) {
         if (cardIsPresent()) {
